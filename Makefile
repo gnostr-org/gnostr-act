@@ -24,9 +24,9 @@ test:
 
 .PHONY: install
 install: build
-	@cp dist/local/act $(PREFIX)/bin/act
-	@chmod 755 $(PREFIX)/bin/act
-	@act --version
+	@cp dist/local/act $(PREFIX)/bin/gnostr-act
+	@chmod 755 $(PREFIX)/bin/gnostr-act
+	@gnostr-act --version
 
 .PHONY: installer
 installer:
