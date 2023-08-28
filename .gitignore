@@ -23,6 +23,9 @@ pkg/runner/act/
 
 # act binary
 dist/local/act
+dist/local/gnostr-act
+bin/act
+bin/gnostr-act
 
 coverage.txt
 

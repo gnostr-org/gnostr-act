@@ -1,5 +1,5 @@
 PREFIX ?= /usr/local
-VERSION ?= $(shell git describe --tags --dirty --always | sed -e 's/^v//')
+VERSION ?= $(shell git describe --tags         --always | sed -e 's/^v//')
 IS_SNAPSHOT = $(if $(findstring -, $(VERSION)),true,false)
 MAJOR_VERSION = $(word 1, $(subst ., ,$(VERSION)))
 MINOR_VERSION = $(word 2, $(subst ., ,$(VERSION)))
@@ -23,7 +23,10 @@ pr: tidy format-all lint test
 
 .PHONY: build
 build:
+	go build -ldflags "-X main.version=$(VERSION)" -o bin/act main.go
+	go build -ldflags "-X main.version=$(VERSION)" -o bin/gnostr-act main.go
 	go build -ldflags "-X main.version=$(VERSION)" -o dist/local/act main.go
+	go build -ldflags "-X main.version=$(VERSION)" -o dist/local/gnostr-act main.go
 
 .PHONY: format
 format:
@@ -74,10 +77,16 @@ tidy:
 	go mod tidy
 
 .PHONY: install
+dist/local/act:
 install: build
-	@cp dist/local/act $(PREFIX)/bin/gnostr-act
+	@install dist/local/act $(PREFIX)/bin/act
+	@chmod 755 $(PREFIX)/bin/act
+	@act --version
+	@./bin/act --version
+	@install dist/local/gnostr-act $(PREFIX)/bin/gnostr-act
 	@chmod 755 $(PREFIX)/bin/gnostr-act
 	@gnostr-act --version
+	@./bin/gnostr-act --version
 
 .PHONY: installer
 installer:
