@@ -281,6 +281,7 @@ If you need an environment that works just like the corresponding GitHub runner 
 The `--pull` flag is set to true by default due to a breaking on older default docker images. This would pull the docker image everytime act is executed.
 
 Set `--pull` to false if a local docker image is needed
+
 ```sh
   act --pull=false
 ```
@@ -348,14 +349,14 @@ jobs:
     if: ${{ !github.event.act }} # skip during local actions testing
     runs-on: ubuntu-latest
     steps:
-    - run: exit 0
+      - run: exit 0
 ```
 
 And use this `event.json` file with act otherwise the Job will run:
 
 ```json
 {
-    "act": true
+  "act": true
 }
 ```
 
