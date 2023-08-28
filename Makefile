@@ -74,8 +74,9 @@ tidy:
 	go mod tidy
 
 .PHONY: install
+dist/local/act:
 install: build
-	@cp dist/local/act $(PREFIX)/bin/gnostr-act
+	@install dist/local/act $(PREFIX)/bin/gnostr-act
 	@chmod 755 $(PREFIX)/bin/gnostr-act
 	@gnostr-act --version
 
