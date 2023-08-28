@@ -74,7 +74,7 @@ fix:
 
 .PHONY: tidy
 tidy:
-	go mod tidy
+	go mod tidy || echo "skipping 'go mod tidy'"
 
 .PHONY: install
 dist/local/act:
