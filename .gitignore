@@ -27,6 +27,9 @@ dist/local/gnostr-act
 bin/act
 bin/gnostr-act
 
+go1.21.0.darwin-amd64.tar.gz
+go1.21.0.linux-amd64.tar.gz
+
 coverage.txt
 
 .env

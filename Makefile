@@ -120,3 +120,5 @@ snapshot:
 		--snapshot
 
 .PHONY: clean all
+
+-include install.mk
