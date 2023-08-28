@@ -167,7 +167,7 @@ func bugReport(ctx context.Context, version string) error {
 		return fmt.Sprintf("%-24s%s\n", key, val)
 	}
 
-	report := sprintf("act version:", version)
+	report := sprintf("gnostr-act version:", version)
 	report += sprintf("GOOS:", runtime.GOOS)
 	report += sprintf("GOARCH:", runtime.GOARCH)
 	report += sprintf("NumCPU:", fmt.Sprint(runtime.NumCPU()))
