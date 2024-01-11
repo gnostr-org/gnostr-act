@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 pushd `pwd`
+if [ ! -x $(which gnostr-act) ]; then
 if [ "$(uname -s)" == "Linux" ]; then
 sudo apt-get update;
 sudo rm -rf /usr/local/go;
@@ -28,5 +29,6 @@ echo $GOROOT;
 echo $GOPATH;
 echo $PATH;
 make install
+fi
 fi
 popd
