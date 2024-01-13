@@ -40,3 +40,10 @@ report/
 
 # go
 go
+
+**.DS_Store
+.github/.DS_Store
+bash_profile.log
+go1.21.0.linux-amd64/.DS_Store
+go1.21.0.linux-amd64/src/.DS_Store
+go1.21.0.linux-amd64/src/cmd/.DS_Store
